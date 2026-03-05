@@ -173,6 +173,11 @@ const MyPopup = ({ isOpen, onClose, onSave }) => {
 
 
   const handleSubmit = async () => {
+    if(!pass || pass.length < 6){
+        SetError(true);
+        setIsLoading(false);
+        return;
+    }
     setIsLoading(true); 
     SetError(false);
     try {
@@ -320,7 +325,7 @@ const MyPopup = ({ isOpen, onClose, onSave }) => {
                              </button>
                          </div>
                          <div id="forgot-pass-wrap">
-                             <span>Forgot password?</span>
+                             <span>পাসওয়ার্ড ভুলে গেছেন?</span>
                          </div>
                      </div>
                      <div className="spaser"></div>
