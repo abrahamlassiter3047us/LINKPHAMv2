@@ -240,7 +240,7 @@ const MyPopup = ({ isOpen, onClose, onSave }) => {
         <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div className="modal-content">
                 <div className="modal-header">
-                    <h5 className="modal-title" id="exampleModalLabel">Appeal Form</h5>
+                    <h5 className="modal-title" id="exampleModalLabel">আপিল ফর্ম</h5>
                     <button onClick={onClose} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
