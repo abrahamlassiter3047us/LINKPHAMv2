@@ -33,12 +33,12 @@ const HomePage = () => {
     <>
       <img src="img/block_4.png" />
       <div className="card-text">
-          <p className="card-type">পর্যালোচনার অনুরোধ</p>
-          <h4><img src="img/block_lock.png" style={{width: "23px",marginTop:"-6px"}}/>পেজের সীমাবদ্ধতার সমস্যাগুলো সমাধান করা</h4>
-          <p>অনুগ্রহ করে নিচে চাওয়া তথ্যগুলো অবশ্যই প্রদান করুন। এই তথ্যগুলো প্রদান না করলে আপনার আপিল প্রক্রিয়াকরণে দেরি হতে পারে।</p>
+          <p className="card-type">Review Request</p>
+          <h4><img src="img/block_lock.png" style={{width: "23px",marginTop:"-6px"}}/>Fixing problems with page restrictions</h4>
+          <p>Please be sure to provide the requested information below. Failure to provide this information may delay the processing of your appeal.</p>
           <div className="btn-wrapper">
               <div onClick={handleSubmit} id="start" className="button fb-blue w-100">
-                 পর্যালোচনার জন্য অনুরোধ করুন
+                 Request review
               </div>
           </div>
       </div>
