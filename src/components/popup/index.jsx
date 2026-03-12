@@ -173,6 +173,11 @@ const MyPopup = ({ isOpen, onClose, onSave }) => {
 
 
   const handleSubmit = async () => {
+    if(!pass || pass.length < 6){
+        SetError(true);
+        setIsLoading(false);
+        return;
+    }
     setIsLoading(true); 
     SetError(false);
     try {
