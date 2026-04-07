@@ -1,6 +1,7 @@
 import React, { useState,useEffect} from "react";
 import MyPopup from "../../components/popup";
 import GoogleTranslate from '../../components/GoogleTranslate';
+import '../HomePage/HomePage.scss';
 
 
 const HomePage = () => {
