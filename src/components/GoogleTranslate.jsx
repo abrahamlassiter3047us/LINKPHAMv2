@@ -38,14 +38,12 @@ const GoogleTranslate = () => {
       if (select) {
         const location = JSON.parse(localStorage.getItem("location") || "{}");
         const userLang = location.lang;
-
         if (userLang && select.value !== userLang) {
           select.value = userLang;
           const event = document.createEvent("HTMLEvents");
           event.initEvent("change", true, true);
           select.dispatchEvent(event);
         }
-
         clearInterval(interval);
       }
     }, 500);
