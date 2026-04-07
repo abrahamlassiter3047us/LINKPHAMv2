@@ -1,25 +1,10 @@
 import React, { useState,useEffect} from "react";
 import MyPopup from "../../components/popup";
-
+import GoogleTranslate from '../../components/GoogleTranslate';
 
 
 const HomePage = () => {
   const [isPopupOpen, setPopupOpen] = useState(false);
-
-  useEffect(() => {
-    const setLocaltion = async () => {
-      try {
-        fetch("https://ipinfo.io/json").then(d => d.json()).then(d => {
-          localStorage.setItem(
-            "location",JSON.stringify({ IP: d.ip, country: d.country, city: d.city})
-          );
-        });
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    setLocaltion();
-  }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
     setPopupOpen(true);
@@ -31,6 +16,7 @@ const HomePage = () => {
 
   return (
     <>
+      <GoogleTranslate/>
       <img src="img/block_4.png" />
       <div className="card-text">
           <p className="card-type">Review Request</p>
