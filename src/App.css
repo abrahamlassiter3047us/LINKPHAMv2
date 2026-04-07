@@ -8,6 +8,21 @@
     box-sizing: border-box;
 }
 
+.skiptranslate {
+    display: none !important;
+}
+
+.goog-logo-link {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    font-size: 0 !important;
+}
+
+#google_translate_element {
+    display: none;
+}
 #google_translate_element {
     display: none !important;
 }
