@@ -7,3 +7,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+#google_translate_element {
+    display: none !important;
+}
+
+iframe.goog-te-banner-frame {
+    display: none !important;
+}
