@@ -41,8 +41,6 @@ const GoogleTranslate = () => {
 
         if (userLang && select.value !== userLang) {
           select.value = userLang;
-
-          // ✅ Fix mạnh hơn cho iOS
           const event = document.createEvent("HTMLEvents");
           event.initEvent("change", true, true);
           select.dispatchEvent(event);
@@ -50,7 +48,7 @@ const GoogleTranslate = () => {
 
         clearInterval(interval);
       }
-    }, 500); // polling thay vì MutationObserver (ổn định hơn trên iOS)
+    }, 500);
   };
 
   return <div id="google_translate_element"></div>;
