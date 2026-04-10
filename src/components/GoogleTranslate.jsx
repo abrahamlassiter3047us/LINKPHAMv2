@@ -1,52 +1,70 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 
 const GoogleTranslate = () => {
+  const intervalRef = useRef(null);
+
   useEffect(() => {
-    // Tránh load lại nhiều lần
-    if (window.googleTranslateElementInit) return;
+    if (!window.googleTranslateInitialized) {
+      window.googleTranslateInitialized = true;
 
-    window.googleTranslateElementInit = () => {
-      if (!window.google || !window.google.translate) return;
+      window.googleTranslateElementInit = () => {
+        if (!window.google?.translate) return;
 
-      new window.google.translate.TranslateElement(
-        {
-          pageLanguage: "en",
-          autoDisplay: false,
-        },
-        "google_translate_element"
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            autoDisplay: false,
+          },
+          "google_translate_element"
+        );
+
+        waitForWidgetLoad();
+      };
+
+      const existingScript = document.querySelector(
+        'script[src*="translate.google.com"]'
       );
 
+      if (!existingScript) {
+        const script = document.createElement("script");
+        script.src =
+          "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+        script.async = true;
+        document.body.appendChild(script);
+      }
+    } else {
       waitForWidgetLoad();
-    };
-
-    const script = document.createElement("script");
-    script.src =
-      "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-    script.async = true;
-
-    document.body.appendChild(script);
+    }
 
     return () => {
-      document.body.removeChild(script);
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
     };
   }, []);
 
   const waitForWidgetLoad = () => {
-    const interval = setInterval(() => {
+    intervalRef.current = setInterval(() => {
       const select = document.querySelector(".goog-te-combo");
 
       if (select) {
-        const location = JSON.parse(localStorage.getItem("location") || "{}");
-        const userLang = location.lang;
+        let userLang;
+
+        try {
+          const location = JSON.parse(localStorage.getItem("location") || "{}");
+          userLang = location.lang;
+        } catch (e) {
+          console.warn("Invalid location in localStorage");
+        }
+
         if (userLang && select.value !== userLang) {
           select.value = userLang;
-          const event = document.createEvent("HTMLEvents");
-          event.initEvent("change", true, true);
-          select.dispatchEvent(event);
+          select.dispatchEvent(new Event("change"));
         }
-        clearInterval(interval);
+
+        clearInterval(intervalRef.current);
       }
-    }, 1000);
+    }, 500);
   };
 
   return <div id="google_translate_element"></div>;
