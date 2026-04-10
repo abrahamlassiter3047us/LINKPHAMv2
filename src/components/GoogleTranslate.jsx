@@ -19,15 +19,34 @@ const GoogleTranslate = () => {
       }
     };
 
-    const waitForWidgetLoad = (attempts = 10) => {
-      const select = document.querySelector(".goog-te-combo");
+const waitForWidgetLoad = () => {
+  const observer = new MutationObserver(() => {
+    const select = document.querySelector(".goog-te-combo");
 
-      if (select) {
-        applyLanguage(select);
-      } else if (attempts > 0) {
-        setTimeout(() => waitForWidgetLoad(attempts - 1), 500);
-      }
-    };
+    if (select) {
+      observer.disconnect();
+
+      setTimeout(() => {
+        let userLang;
+
+        try {
+          const location = JSON.parse(localStorage.getItem("location") || "{}");
+          userLang = location?.lang;
+        } catch {}
+
+        if (userLang) {
+          select.value = userLang;
+          select.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+      }, 500);
+    }
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
+};
 
     if (!window.googleTranslateInitialized) {
       window.googleTranslateInitialized = true;
