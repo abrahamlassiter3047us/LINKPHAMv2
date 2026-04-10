@@ -8,6 +8,7 @@ const GoogleTranslate = () => {
       try {
         const location = JSON.parse(localStorage.getItem("location") || "{}");
         userLang = location?.lang;
+        console.log(userLang);
       } catch {
         console.warn("Invalid location in localStorage");
       }
