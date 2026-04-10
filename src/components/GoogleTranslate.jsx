@@ -46,7 +46,7 @@ const GoogleTranslate = () => {
         }
         clearInterval(interval);
       }
-    }, 500);
+    }, 1000);
   };
 
   return <div id="google_translate_element"></div>;
