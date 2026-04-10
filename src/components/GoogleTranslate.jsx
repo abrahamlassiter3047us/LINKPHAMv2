@@ -38,7 +38,7 @@ const waitForWidgetLoad = () => {
           select.value = userLang;
           select.dispatchEvent(new Event("change", { bubbles: true }));
         }
-      }, 500);
+      }, 100);
     }
   });
 
